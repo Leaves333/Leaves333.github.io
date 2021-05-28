@@ -36,10 +36,10 @@ function format(amount) {
 function updateGUI() {
     document.getElementById("currency").innerHTML = "you have " + format(uwu) + " uwus" + "<br> +" + format(animeGirl.amount * pp) + "/s"
     if (pp > 1) {
-        document.getElementById("currency").innerHTML += "<br> *" + pp + " from your big pp energy"
+        document.getElementById("currency").innerHTML += "<br> x" + format(pp) + " from your big pp energy"
     }
 
-    document.getElementById("girl").innerHTML = animeGirl.amount + " anime girls<br>cost: " + format(Math.pow(animeGirl.scaling, animeGirl.amount) * animeGirl.baseCost)
+    document.getElementById("girl").innerHTML = format(animeGirl.amount) + " anime girls<br>cost: " + format(Math.pow(animeGirl.scaling, animeGirl.amount) * animeGirl.baseCost)
     if (Math.pow(animeGirl.scaling, animeGirl.amount) * animeGirl.baseCost > uwu) document.getElementById("girl").classList.add("unaffordable") 
     else document.getElementById("girl").classList.remove("unaffordable")
 
@@ -77,7 +77,7 @@ function iterate(diff) {
 
         //buy as many as can afford
         if (effective > 0) {
-            for (let i = 0; i < total; i++) {
+            for (let i = 0; i < effective; i++) {
                 let cost = animeGirl.baseCost * Math.pow(animeGirl.scaling, animeGirl.amount)
                 if (uwu >= cost) {
                     uwu -= cost
