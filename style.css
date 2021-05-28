@@ -1,0 +1,51 @@
+
+* {
+    box-sizing: border-box;
+}
+
+.buyable {
+    border: 2px solid rgb(151, 124, 66);
+    background-color: bisque;
+    text-align: center;
+    width: 300px;
+    padding: 15px;
+    font-size: 1em;
+    cursor: pointer;
+    user-select: none;
+}
+
+.buyable.unaffordable {
+    background-color: lightcoral;
+    border: 2px solid crimson;
+}
+
+.buyables-container {
+    display: flex;
+    width: 300px;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.toggle {
+    border: 2px solid rgb(151, 124, 66);
+    background-color: bisque;
+    text-align: center;
+    width: 200px;
+    padding: 15px;
+    font-size: 1em;
+    cursor: pointer;
+    user-select: none;
+}
+
+.toggles {
+    display: flex;
+    width: 400px;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+#currency {
+    margin: 40px;
+    font-size: 3em;
+    text-align: center;
+}

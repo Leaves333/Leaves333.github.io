@@ -1,10 +1,26 @@
-﻿<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <title>leaves site yes</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>freezing pulse totem</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <img src="images/hi.jpg" alt="testImage">
+    <div id="currency">gae</div>
+    <div class="buyables-container">
+        <div class="buyable" id="girl" onclick="buyItem(animeGirl)"></div>
+        <div class="buyable" id="recruit" onclick="buyItem(recruit)"></div>
+        <div class="buyable" id="ritual" onclick="buyItem(rituals)"></div>
+    </div>
+    <br>
+    <div class="toggles">
+        <div class="toggle" id="recruitToggle" onclick="toggleRecruit()">toggle recruiting</div>
+        <div class="toggle" id="ritualToggle" onclick="toggleRitual()">toggle rituals</div>
+    </div>
 </body>
+<script src="main.js"></script>
+
 </html>
