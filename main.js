@@ -43,11 +43,11 @@ function updateGUI() {
     if (Math.pow(animeGirl.scaling, animeGirl.amount) * animeGirl.baseCost > uwu) document.getElementById("girl").classList.add("unaffordable") 
     else document.getElementById("girl").classList.remove("unaffordable")
 
-    document.getElementById("recruit").innerHTML = recruit.amount + " anime girl recruiting officers<br>cost: " + format(Math.pow(recruit.scaling, recruit.amount) * recruit.baseCost)
+    document.getElementById("recruit").innerHTML = format(recruit.amount) + " anime girl recruiting officers<br>cost: " + format(Math.pow(recruit.scaling, recruit.amount) * recruit.baseCost)
     if (Math.pow(recruit.scaling, recruit.amount) * recruit.baseCost > uwu) document.getElementById("recruit").classList.add("unaffordable") 
     else document.getElementById("recruit").classList.remove("unaffordable")
 
-    document.getElementById("ritual").innerHTML = rituals.amount + " dark rituals<br>cost: " + format(Math.pow(rituals.scaling, rituals.amount) * rituals.baseCost)
+    document.getElementById("ritual").innerHTML = format(rituals.amount) + " dark rituals<br>cost: " + format(Math.pow(rituals.scaling, rituals.amount) * rituals.baseCost)
     if (Math.pow(rituals.scaling, rituals.amount) * rituals.baseCost > uwu) document.getElementById("ritual").classList.add("unaffordable") 
     else document.getElementById("ritual").classList.remove("unaffordable")
 
@@ -71,23 +71,22 @@ function iterate(diff) {
     }
     
     if (doRecruit) {
-        let total = ((recruit.amount * 0.5) + bank) * diff
-        let effective = Math.floor(total)
-        bank += total - effective
+        bank += ((recruit.amount * 0.5) * diff)
 
         //buy as many as can afford
-        if (effective > 0) {
-            for (let i = 0; i < effective; i++) {
-                let cost = animeGirl.baseCost * Math.pow(animeGirl.scaling, animeGirl.amount)
-                if (uwu >= cost) {
-                    uwu -= cost
-                    animeGirl.amount += 1
-                } else {
-                    bank = 0
-                    break
-                }
+        while (bank >= 1) {
+            let cost = animeGirl.baseCost * Math.pow(animeGirl.scaling, animeGirl.amount)
+            if (uwu >= cost) {
+                uwu -= cost
+                animeGirl.amount += 1
+                bank -= 1
+            } else {
+                bank = 0
+                effective = 0
+                break
             }
         }
+        effective = 0
     }
 
     uwu += animeGirl.amount * pp * diff
