@@ -16,7 +16,7 @@ var bank = 0
 var doRecruit = true
 
 var rituals = {
-    baseCost: 1000,
+    baseCost: 500,
     amount: 0,
     scaling: 1.15
 }
