@@ -82,11 +82,9 @@ function iterate(diff) {
                 bank -= 1
             } else {
                 bank = 0
-                effective = 0
                 break
             }
         }
-        effective = 0
     }
 
     uwu += animeGirl.amount * pp * diff
